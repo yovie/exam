@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="description" content="Simplest possible examples of HTML, CSS and JavaScript." />
+  <meta name="author" content="//samdutton.com">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta itemprop="name" content="simpl.info: simplest possible examples of HTML, CSS and JavaScript">
+  <meta itemprop="image" content="/icon_192x192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta id="theme-color" name="theme-color" content="#fff">
+
+  <base target="_blank">
+
+  <title>getUserMedia</title>
+
+  <style>
+    video {
+      object-fit: cover;
+    }
+    @media screen and (min-width: 1000px) {
+      video {
+        height: 480px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  
+    <video autoplay></video>
+
+    <script type="text/javascript">
+      navigator.getUserMedia = navigator.getUserMedia ||
+          navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+      var constraints = {
+        audio: false,
+        video: true
+      };
+      var video = document.querySelector('video');
+
+      function successCallback(stream) {
+        window.stream = stream; // stream available to console
+        if (window.URL) {
+          video.src = window.URL.createObjectURL(stream);
+        } else {
+          video.src = stream;
+        }
+      }
+
+      function errorCallback(error) {
+        console.log('navigator.getUserMedia error: ', error);
+      }
+
+      navigator.getUserMedia(constraints, successCallback, errorCallback);
+    </script>
+
+</body>
+</html>

@@ -13,6 +13,7 @@ var credentials = {
 	};
 
 var app = express();
+app.use(express.static(__dirname + '/public'));
 
 var httpserver = http.createServer( app );
 var httpsserver = https.createServer( credentials, app );
