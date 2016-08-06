@@ -1,0 +1,8 @@
+tetap harus set host di os,
+
+127.0.0.1	localhost
+127.0.0.1	localhost.lo
+
+dll
+
+nanti aplikasi yang dieksekusi sesuai dengan domain yang digunakan
