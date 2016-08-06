@@ -1,0 +1,7 @@
+gcc view_c.c -o view_c.bin `pkg-config --libs --cflags opencv` -lm
+
+	-lm is math library, provides lrint
+
+g++ view_cpp.cpp -o view_cpp.bin `pkg-config --libs --cflags opencv`
+
+
