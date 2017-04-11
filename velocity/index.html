@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<title>Velocity</title>
+		<script src="jquery-2.1.4.min.js"></script>
+		<script src="velocity.min.js"></script>
+		<style>
+			body {
+			  font-family: "Helvetica Neue", Helvetica;
+			  width: 90%;
+			  font-weight: 200;
+			  letter-spacing: 1px;
+			  margin: 25px auto 0 auto;
+			  background: rgb(234, 235, 235);
+			  color: rgb(25, 25, 25);
+			}
+
+			svg, p {
+			  margin: 0 auto;
+			}
+
+			p {
+			  color: rgb(125, 125, 125);
+			  font-size: 0.85rem;
+			  text-align: center;
+			  margin-bottom: 17px;
+			}
+
+			svg {
+			  display: block;
+			  width: 500px;
+			}
+
+			rect {
+			  transform-origin: 0% 0%;
+			}
+			
+			#wrapper{
+				border: solid 1px red;
+				position: absolute;
+				left:50%;
+				top:50%;
+				width:200px;
+				height:200px;
+			}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				el = $('#rect');
+				el.delay(500)
+				  .velocity({ x: "+=100", y: "25%" })
+				.velocity({ fillGreen: 255, strokeWidth: 2 })
+				  .velocity({ height: 50, width: 50 })
+				.velocity({ rotateZ: 90, scaleX: 0.5 })
+				.velocity("reverse", { delay: 250 });
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+		<svg>
+			<rect id="rect" width="25" height="25" x="0%" y="0%" fill="gray" stroke="rgba(80, 80, 80, 1)" stroke-width="0px" />
+		</svg>
+		</div>
+	</body>
+</html>
